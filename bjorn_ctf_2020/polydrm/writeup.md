@@ -9,7 +9,14 @@ In this challenge we are given a pdf file called polydrm.pdf. When we open it we
 
 At first we tried to look into it by some pdf analyzer tools but without much result.
 
-So let's look at it in IDA. One thing that we can notice is that it begins with the ELF magic string. So the beginning of the file seems to be an elf binary, after it the pdf file starts. 
+Then we check it with:
+```bash
+$ file polydrm.pdf
+polydrm.pdf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, corrupted section header size
+```
+Woow, so it's an ELF binary as well? Let's look into it a bit more with IDA.
+
+One thing that we can notice is that it begins with the ELF magic string. So the beginning of the file seems to be an elf binary, after it the pdf file starts. 
 <p align="center">
   <img src="https://github.com/dneubrandt/ctf/blob/master/bjorn_ctf_2020/polydrm/imgs/polydrm_magic_string.PNG">
 </p>
