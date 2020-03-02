@@ -21,12 +21,12 @@ One thing that we can notice is that it begins with the ELF magic string. So the
   <img src="https://github.com/dneubrandt/ctf/blob/master/bjorn_ctf_2020/polydrm/imgs/polydrm_magic_string.PNG">
 </p>
 
-Let's change the extension of the file from .pdf to .bin and see what happens if we try to run it. It can be run and it says *Wrong!!!*. Okay now we got some clues. Let's find this part in IDA and see what's happening there.
+Let's see what happens if we try to run it. It can be run and it says *Wrong!!!*. Okay now we got some clues. Let's find this part in IDA and see what's happening there.
 <p align="center">
   <img src="https://github.com/dneubrandt/ctf/blob/master/bjorn_ctf_2020/polydrm/imgs/polydrm_ida.PNG">
 </p>
 
-It seems that the binary checks if the user input string has *ciao* as substring, and if yes it calls a function that seems to do some magic (in function renamed *nice*) on the file itself. Well, let's input *ciao* to it. Hmm this time it says *Nice*, ok. But remember it modified something in itself so we get the intuition to check that pdf file again. For that we convert our .bin back to .pdf and voilaaa. It decrypted the flag.
+It seems that the binary checks if the user input string has *ciao* as substring, and if yes it calls a function that seems to do some magic (in function renamed *nice*) on the file itself. Well, let's input *ciao* to it. Hmm this time it says *Nice*, ok. But remember it modified something in itself so we get the intuition to check that pdf file again and voilaaa. It decrypted the flag.
 <p align="center">
   <img src="https://github.com/dneubrandt/ctf/blob/master/bjorn_ctf_2020/polydrm/imgs/polydrm_flag.PNG">
 </p>
